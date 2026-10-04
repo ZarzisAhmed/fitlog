@@ -12,7 +12,7 @@ export interface IWorkoutLIbraryCard {
 
 const WorkoutLibraryCard = ({ workout }: IWorkoutLIbraryCard) => {
   return (
-    <Link href={`http://localhost:3000/details/${workout.id}`}>
+    <Link href={`/details/${workout.id}`}>
       <div className="card bg-base-100 shadow-sm">
         <figure>
           <Image
