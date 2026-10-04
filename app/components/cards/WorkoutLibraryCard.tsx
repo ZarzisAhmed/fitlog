@@ -4,6 +4,7 @@ import IWorkout from "@/app/types/WorkoutType";
 import { IoMdTime } from "react-icons/io";
 import { AiFillFire } from "react-icons/ai";
 import { FaRegStar } from "react-icons/fa";
+import Link from "next/link";
 
 export interface IWorkoutLIbraryCard {
   workout: IWorkout;
@@ -11,7 +12,7 @@ export interface IWorkoutLIbraryCard {
 
 const WorkoutLibraryCard = ({ workout }: IWorkoutLIbraryCard) => {
   return (
-    <div className="">
+    <Link href={`http://localhost:3000/details/${workout.id}`}>
       <div className="card bg-base-100 shadow-sm">
         <figure>
           <Image
@@ -51,7 +52,7 @@ const WorkoutLibraryCard = ({ workout }: IWorkoutLIbraryCard) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
