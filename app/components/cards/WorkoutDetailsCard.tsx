@@ -1,5 +1,7 @@
 import IWorkout from "@/app/types/WorkoutType";
 import Image from "next/image";
+import { CiBookmark } from "react-icons/ci";
+import { FaRegCalendarPlus } from "react-icons/fa";
 
 export interface WorkoutDetailsCardProps {
   id: string;
@@ -29,8 +31,8 @@ export default async function WorkoutDetailsCard({
               className="w-full"
             ></Image>
           </figure>
-          <div className="card-body space-y-4">
-            <h2 className="text-3xl font-extrabold font-stretch-60%">
+          <div className="card-body space-y-4 md:px-20">
+            <h2 className="text-3xl font-extrabold font-stretch-60% ">
               {workout.name}
             </h2>
             <p className="text-[#9CA3AF]">{workout.description}</p>
@@ -93,8 +95,24 @@ export default async function WorkoutDetailsCard({
                 </tbody>
               </table>
             </div>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Watch</button>
+            <div className="space-y-3 my-10">
+              <h1 className="font-extrabold text-xl">INSTRUCTIONS</h1>
+              {workout.instructions.map((work: string, ind: number) => (
+                <p
+                  key={ind}
+                  className="text-[#D1D5DB] text-lg font-stretch-80%"
+                >{`${ind + 1}. ${work}`}</p>
+              ))}
+            </div>
+            <div className="card-actions justify-end gap-5">
+              <button className="btn bg-[#CCFF00] text-black transition-all duration-200 hover:scale-110 active:scale-105 rounded-xl px-3 sm:px-7">
+                <FaRegCalendarPlus />
+                Add to today&apos;s plan
+              </button>
+              <button className="btn text-[#E5E7EB] transition-all duration-200 hover:scale-110 active:scale-105 rounded-xl px-3 sm:px-7 ">
+                <CiBookmark />
+                Save for later
+              </button>
             </div>
           </div>
         </div>

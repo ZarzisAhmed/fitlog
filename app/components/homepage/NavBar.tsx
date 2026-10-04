@@ -1,28 +1,29 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
+  const pathname = usePathname();
   const links = (
     <>
-      {" "}
-      <li>
-        <input
-          type="radio"
-          name="menu"
-          aria-label="Workouts"
-          defaultChecked
-          className="btn checked:bg-yellow-200/20 checked:text-yellow-200 checked:border-0 rounded-3xl mx-2"
-        />
-      </li>
-      <li>
-        <input
-          type="radio"
-          name="menu"
-          aria-label="My Plan"
-          className="btn checked:bg-yellow-200/20 checked:text-yellow-200 checked:border-0 rounded-3xl"
-        />
-      </li>
+      <div className="">
+        <Link href={"/"} className="px-3">
+          <button
+            className={`btn rounded-2xl ${pathname === "/" ? "bg-[#C2F800]/30 text-[#C2F800]" : "font-bold bg-black border-0 hover:bg-[#C2F800]/50 hover:text-[#C2F800]"}`}
+          >
+            Workouts
+          </button>
+        </Link>
+        <Link href={"/myPlan"} className="px-3">
+          <button
+            className={`btn rounded-2xl ${pathname === "/myPlan" ? "bg-[#C2F800]/30 text-[#C2F800]" : "font-bold bg-black border-0 hover:bg-[#C2F800]/50 hover:text-[#C2F800]"}`}
+          >
+            My Plan
+          </button>
+        </Link>
+      </div>
     </>
   );
   return (
