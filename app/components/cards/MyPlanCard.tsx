@@ -45,10 +45,10 @@ const MyPlanCard = ({ workout }: IMyPlanCard) => {
               <p className="text-[#D1D5DB]">{workout.rating} min</p>
             </div>
           </div>
-          <div className="card-actions justify-around  items-center sm:justify-end sm:gap-5">
+          <div className="flex flex-col sm:flex-row gap-5 justify-around  items-center sm:justify-end sm:gap-5">
             <Link href={`/details/${workout.id}`}>
               {" "}
-              <button className="btn border-gray-700 rounded-3xl">
+              <button className="btn border-gray-700 rounded-3xl w-50 sm:w-full">
                 View Details
               </button>
             </Link>

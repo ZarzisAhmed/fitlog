@@ -21,7 +21,7 @@ const MarkAsDoneButton = ({ workout }: IMardAsDoneButton) => {
   return (
     <div>
       <button
-        className="btn  bg-[#C2F800] border-0 text-black rounded-3xl"
+        className="btn  bg-[#C2F800] border-0 text-black rounded-3xl w-50 sm:w-full"
         onClick={() => handleMarkAsDone(workout)}
       >
         <FaCheck /> Mark As Done
