@@ -4,11 +4,10 @@ import { WorkoutContext } from "@/context/WorkoutContext";
 import React, { useContext } from "react";
 import MyPlanCard from "../cards/MyPlanCard";
 import SaveCard from "../cards/SaveCard";
+import NotFoundPage from "./NotFoundPage";
 
 const MyPlanList = () => {
-  const { planWorkout, saveWorkout, setIsSaved } = useContext(
-    WorkoutContext,
-  ) as {
+  const { planWorkout, saveWorkout } = useContext(WorkoutContext) as {
     planWorkout: IWorkout[];
     saveWorkout: IWorkout[];
     isSaved: boolean;
@@ -25,12 +24,15 @@ const MyPlanList = () => {
           className="tab rounded-2xl"
           aria-label="Todays Plan"
           defaultChecked
-          onClick={() => setIsSaved(false)}
         />
         <div className="tab-content  border-base-300 p-6 my-5">
-          {planWorkout.map((workout: IWorkout) => (
-            <MyPlanCard key={workout.id} workout={workout}></MyPlanCard>
-          ))}
+          {planWorkout.length === 0 ? (
+            <NotFoundPage></NotFoundPage>
+          ) : (
+            planWorkout.map((workout: IWorkout) => (
+              <MyPlanCard key={workout.id} workout={workout}></MyPlanCard>
+            ))
+          )}
         </div>
 
         <input
@@ -40,9 +42,13 @@ const MyPlanList = () => {
           aria-label="Saved"
         />
         <div className="tab-content  border-base-300 p-6 my-5">
-          {saveWorkout.map((workout: IWorkout) => (
-            <SaveCard key={workout.id} workout={workout}></SaveCard>
-          ))}
+          {saveWorkout.length === 0 ? (
+            <NotFoundPage></NotFoundPage>
+          ) : (
+            saveWorkout.map((workout: IWorkout) => (
+              <SaveCard key={workout.id} workout={workout}></SaveCard>
+            ))
+          )}
         </div>
       </div>
     </div>
