@@ -1,7 +1,7 @@
 import IWorkout from "@/app/types/WorkoutType";
 import Image from "next/image";
 import { CiBookmark } from "react-icons/ci";
-import { FaRegCalendarPlus } from "react-icons/fa";
+import PlanButton from "../workoutDetails/PlanButton";
 
 export interface WorkoutDetailsCardProps {
   id: string;
@@ -31,7 +31,7 @@ export default async function WorkoutDetailsCard({
               className="w-full"
             ></Image>
           </figure>
-          <div className="card-body space-y-4 md:px-20">
+          <div className="card-body space-y-4 ">
             <h2 className="text-3xl font-extrabold font-stretch-60% ">
               {workout.name}
             </h2>
@@ -105,10 +105,7 @@ export default async function WorkoutDetailsCard({
               ))}
             </div>
             <div className="card-actions justify-end gap-5">
-              <button className="btn bg-[#CCFF00] text-black transition-all duration-200 hover:scale-110 active:scale-105 rounded-xl px-3 sm:px-7">
-                <FaRegCalendarPlus />
-                Add to today&apos;s plan
-              </button>
+              <PlanButton workout={workout} />
               <button className="btn text-[#E5E7EB] transition-all duration-200 hover:scale-110 active:scale-105 rounded-xl px-3 sm:px-7 ">
                 <CiBookmark />
                 Save for later

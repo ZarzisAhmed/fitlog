@@ -1,7 +1,7 @@
-import React from "react";
+import MyPlanList from "../components/myPlanPage/MyPlanList";
 
 const page = () => {
-  return <div></div>;
+  return <MyPlanList></MyPlanList>;
 };
 
 export default page;
