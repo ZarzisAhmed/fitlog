@@ -1,7 +1,8 @@
 import IWorkout from "@/app/types/WorkoutType";
 import Image from "next/image";
-import { CiBookmark } from "react-icons/ci";
+
 import PlanButton from "../workoutDetails/PlanButton";
+import SaveWorkoutButton from "../myPlanPage/SaveWorkoutButton";
 
 export interface WorkoutDetailsCardProps {
   id: string;
@@ -106,10 +107,7 @@ export default async function WorkoutDetailsCard({
             </div>
             <div className="card-actions justify-end gap-5">
               <PlanButton workout={workout} />
-              <button className="btn text-[#E5E7EB] transition-all duration-200 hover:scale-110 active:scale-105 rounded-xl px-3 sm:px-7 ">
-                <CiBookmark />
-                Save for later
-              </button>
+              <SaveWorkoutButton workout={workout}></SaveWorkoutButton>
             </div>
           </div>
         </div>

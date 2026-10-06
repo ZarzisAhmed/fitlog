@@ -6,14 +6,13 @@ import { AiFillFire } from "react-icons/ai";
 import { FaRegStar } from "react-icons/fa";
 
 import Link from "next/link";
-import MarkAsDoneButton from "../myPlanPage/MarkAsDoneButton";
-import CrossButton from "../myPlanPage/CrossButtonPlan";
+import CrossButton from "../myPlanPage/CrossButtonSave";
 
-interface IMyPlanCard {
+interface ISaveCard {
   workout: IWorkout;
 }
 
-const MyPlanCard = ({ workout }: IMyPlanCard) => {
+const SaveCard = ({ workout }: ISaveCard) => {
   return (
     <div>
       <div className="card card-top md:card-side bg-base-100 shadow-sm">
@@ -52,7 +51,6 @@ const MyPlanCard = ({ workout }: IMyPlanCard) => {
                 View Details
               </button>
             </Link>
-            <MarkAsDoneButton workout={workout}></MarkAsDoneButton>
             <CrossButton workout={workout}></CrossButton>
           </div>
         </div>
@@ -61,4 +59,4 @@ const MyPlanCard = ({ workout }: IMyPlanCard) => {
   );
 };
 
-export default MyPlanCard;
+export default SaveCard;
