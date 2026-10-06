@@ -7,7 +7,6 @@ export default function Home() {
       <div>
         <Hero></Hero>
         <WorkoutLibrary></WorkoutLibrary>
-        <h1>testin vercel deployment</h1>
       </div>
     </>
   );
